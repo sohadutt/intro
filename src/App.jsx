@@ -1,14 +1,23 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter } from "react-router-dom";
+import { Nav } from "./comp/nav";
+import "./App.css";
+import UseDarkMode from "./comp/useDarkmode";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      
-    </>
-  )
+    <BrowserRouter>
+      <div className="main">
+        <div>
+            <UseDarkMode />
+          </div>
+        <div className="header">
+          
+          <Nav />
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
