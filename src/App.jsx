@@ -1,18 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import { Nav } from "./comp/nav";
 import "./App.css";
-import UseDarkMode from "./comp/useDarkmode";
 
 
 function App() {
   return (
     <BrowserRouter>
       <div className="main">
-        <div>
-            <UseDarkMode />
-          </div>
         <div className="header">
-          
+          <div className="logo">
+            BoardBenchers
+          </div>
           <Nav />
         </div>
       </div>

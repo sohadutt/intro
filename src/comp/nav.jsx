@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
+import { CircleCheckIcon, CircleHelpIcon, Sun, Moon } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import React, { useEffect, useState } from "react";
 
 const components = [
   {
@@ -51,6 +52,29 @@ const components = [
 const Info = components.map(({ title, to }) => ({ title, to }));
 
 export function Nav() {
+
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
@@ -110,22 +134,7 @@ export function Nav() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              {Info.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  to={component.to}
-                />
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
               <li>
@@ -144,27 +153,24 @@ export function Nav() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Info</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
               <li>
                 <NavigationMenuLink asChild>
                   <Link to="#" className="flex flex-row items-center gap-2">
                     <CircleHelpIcon />
-                    Backlog
+                    Misc
                   </Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
-                  <Link to="#" className="flex flex-row items-center gap-2">
-                    <CircleIcon />
-                    To Do
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#" className="flex flex-row items-center gap-2">
-                    <CircleCheckIcon />
-                    Done
-                  </Link>
+                  <button
+                    onClick={() => setIsDark((prev) => !prev)}
+                    className="flex flex-row w-full items-center gap-2"
+                  >
+                    {isDark ? <Sun /> : <Moon />}
+                    Theme
+                  </button>
                 </NavigationMenuLink>
               </li>
             </ul>
