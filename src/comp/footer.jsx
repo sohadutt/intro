@@ -42,7 +42,7 @@ export function Footer() {
           <h3 className="text-sm font-medium mb-1">Contact</h3>
           <div className="flex items-center gap-2 text-sm">
             <Mail className="w-4 h-4" />
-            <span>support@schoolsoft.dev</span>
+            <span>support@BoardBenchers.dev</span>
           </div>
           <div className="flex items-center gap-2 text-sm">
             <Phone className="w-4 h-4" />
@@ -55,12 +55,12 @@ export function Footer() {
           <h3 className="text-sm font-medium mb-1">Connect with us</h3>
           <div className="flex gap-3">
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/sohadutt/intro?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
                 <Twitter className="h-4 w-4" />
               </a>
             </Button>
@@ -76,7 +76,7 @@ export function Footer() {
       <Separator className="my-6" />
 
       <div className="text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} SchoolSoft. All rights reserved.
+        &copy; {new Date().getFullYear()} <BoardBenchers></BoardBenchers>. All rights reserved.
       </div>
     </footer>
   );
