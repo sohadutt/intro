@@ -47,7 +47,7 @@ export function FeatureCarousel() {
   return (
     <section className="w-full max-w-5xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mb-6">Key Features</h2>
-      <Carousel className="w-full">
+      <Carousel className="w-full" opts={{ loop: true }}>
         <CarouselContent>
           {features.map((feature, index) => (
             <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">

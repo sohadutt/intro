@@ -18,17 +18,10 @@ body {
   flex: 1;
 }
 
-.footer {
-  text-align: center;
-  padding: 1rem 0;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  cursor: pointer;
 }
 
 .logo.react:hover {
@@ -49,3 +42,4 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+

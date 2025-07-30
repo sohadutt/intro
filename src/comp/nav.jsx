@@ -26,7 +26,7 @@ export function Nav() {
           window.matchMedia("(prefers-color-scheme: dark)").matches)
       );
     }
-    return false;
+    return true; //change for default mode
   });
 
   useEffect(() => {
