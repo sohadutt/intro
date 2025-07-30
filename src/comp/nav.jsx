@@ -169,7 +169,7 @@ export function Nav() {
                     className="flex flex-row w-full items-center gap-2"
                   >
                     {isDark ? <Sun /> : <Moon />}
-                    Theme
+                    {isDark ? "Light" : "Dark"}
                   </button>
                 </NavigationMenuLink>
               </li>
