@@ -38,10 +38,10 @@ Coming soon...
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/portfolio-intro.git
+git clone https://github.com/your-username/intro.git
 
 # Navigate into the project folder
-cd portfolio-intro
+cd intro
 
 # Install dependencies
 npm install
