@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CircleCheckIcon, CircleHelpIcon, Sun, Moon } from "lucide-react";
+import { CircleHelpIcon, Sun, Moon } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,48 +11,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import React, { useEffect, useState } from "react";
 
-const components = [
-  {
-    title: "Alert Dialog",
-    to: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    to: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    to: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    to: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    to: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    to: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
+const Info = [
+  { title: "Overview", to: "/about" },
+  { title: "Roadmap", to: "/roadmap" },
+  { title: "FAQs", to: "/faq" },
 ];
 
-const Info = components.map(({ title, to }) => ({ title, to }));
-
 export function Nav() {
-
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
       return (
@@ -78,6 +43,7 @@ export function Nav() {
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
+        {/* Home Dropdown */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -89,76 +55,60 @@ export function Nav() {
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
                   >
                     <div className="mt-4 mb-2 text-lg font-medium">
-                      shadcn/ui
+                      SchoolSoft
                     </div>
                     <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
+                      A modern school management software. Currently in
+                      development.
                     </p>
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem to="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              <ListItem to="/about" title="About">
+                Learn about our mission and what we're building.
               </ListItem>
-              <ListItem to="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              <ListItem to="/roadmap" title="Roadmap">
+                Features planned and in progress.
               </ListItem>
-              <ListItem to="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem to="/faq" title="FAQs">
+                Common questions about SchoolSoft.
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  to={component.to}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
+        {/* Docs Link */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/docs">Docs</Link>
+            <Link to="/docs">Documentation</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
+        {/* Contact Dropdown */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
+            <ul className="grid w-[20vh] gap-4">
               <li>
                 <NavigationMenuLink asChild>
-                  <Link to="#">Components</Link>
+                  <Link to="/contact">Get in Touch</Link>
                 </NavigationMenuLink>
                 <NavigationMenuLink asChild>
-                  <Link to="#">Documentation</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="#">Blocks</Link>
+                  <Link to="/support">Support</Link>
                 </NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
+        {/* Info Dropdown */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Info</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
+            <ul className="grid w-[10vh] gap-4">
               <li>
                 <NavigationMenuLink asChild>
-                  <Link to="#" className="flex flex-row items-center gap-2">
+                  <Link to="#" className="flex flex-row items-center gap-1">
                     <CircleHelpIcon />
                     Misc
                   </Link>
@@ -166,15 +116,32 @@ export function Nav() {
                 <NavigationMenuLink asChild>
                   <button
                     onClick={() => setIsDark((prev) => !prev)}
-                    className="flex flex-row w-full items-center gap-2"
+                    className="flex flex-row w-full items-center gap-1"
                   >
-                    {isDark ? <Sun /> : <Moon />}
-                    {isDark ? "Light" : "Dark"}
+                    {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                    <span className="text-sm">
+                      {isDark ? "Light" : "Dark"}
+                    </span>
                   </button>
                 </NavigationMenuLink>
               </li>
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        {/* Sign Up Button */}
+        <NavigationMenuItem>
+          <button
+            onClick={() => {
+              const el = document.getElementById("signup");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
+            className={`cursor-pointer ml-2 px-4 py-2 rounded-md font-medium transition-colors border 
+              ${isDark ? "bg-white text-black hover:bg-gray-100" 
+                       : "bg-black text-white hover:bg-neutral-900"}`}
+          >
+            Sign Up  
+          </button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
