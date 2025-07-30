@@ -17,7 +17,7 @@ export function Footer() {
         
         {/* Brand Info */}
         <div className="flex flex-col gap-2 max-w-sm">
-          <h2 className="text-lg font-semibold">SchoolSoft</h2>
+          <h2 className="text-lg font-semibold">BoardBenchers</h2>
           <p className="text-sm text-muted-foreground">
             A modern school management platform in development — designed to
             simplify and enhance school operations.
