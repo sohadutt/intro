@@ -76,7 +76,7 @@ export function Footer() {
       <Separator className="my-6" />
 
       <div className="text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} <BoardBenchers></BoardBenchers>. All rights reserved.
+        &copy; {new Date().getFullYear()} BoardBenchers. All rights reserved.
       </div>
     </footer>
   );
