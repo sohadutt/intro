@@ -55,7 +55,7 @@ export function Nav() {
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
                   >
                     <div className="mt-4 mb-2 text-lg font-medium">
-                      SchoolSoft
+                      BoardBenchers
                     </div>
                     <p className="text-muted-foreground text-sm leading-tight">
                       A modern school management software. Currently in
