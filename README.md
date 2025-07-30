@@ -30,7 +30,7 @@ Coming soon...
 
 ## 🔗 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://intro-olive.vercel.app)
 
 ---
 
