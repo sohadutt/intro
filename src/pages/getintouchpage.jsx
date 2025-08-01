@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -24,7 +23,6 @@ export default function GetInTouchPage() {
   });
 
   function onSubmit(data) {
-    // Replace with actual submission logic
     alert(JSON.stringify(data, null, 2));
   }
 

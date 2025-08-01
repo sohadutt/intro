@@ -9,6 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import React, { useEffect, useState } from "react";
 
 const Info = [
@@ -131,17 +132,14 @@ export function Nav() {
 
         {/* Sign Up Button */}
         <NavigationMenuItem>
-          <button
+          <Button
             onClick={() => {
               const el = document.getElementById("signup");
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`cursor-pointer ml-2 px-4 py-2 rounded-md font-medium transition-colors border 
-              ${isDark ? "bg-white text-black hover:bg-gray-100" 
-                       : "bg-black text-white hover:bg-neutral-900"}`}
           >
-            Sign Up  
-          </button>
+            Sign Up
+          </Button>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
