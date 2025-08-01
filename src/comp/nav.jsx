@@ -72,7 +72,7 @@ export function Nav() {
                 Features planned and in progress.
               </ListItem>
               <ListItem to="/faq" title="FAQs">
-                Common questions about SchoolSoft.
+                Common questions about the app.
               </ListItem>
             </ul>
           </NavigationMenuContent>

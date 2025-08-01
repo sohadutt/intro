@@ -23,7 +23,7 @@ const faqs = [
       "We use React.js for the frontend, Django for the backend, and AWS for deployment and hosting.",
   },
   {
-    question: "Is this software free?",
+    question: "Is this service free?",
     answer:
       "Board and Benchers will offer both free and premium plans with additional features.",
   },
