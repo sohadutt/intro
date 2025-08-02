@@ -10,6 +10,8 @@ import { RoadmapSection } from "./comp/roadmap";
 import AboutPage from "./pages/about";
 import FAQPage from "./pages/faqpage";
 import GetInTouchPage from "./pages/getintouchpage";
+import TermsOfUse from "./pages/termsofuse";
+import PrivacyPolicy from "./pages/privacyPolicy";
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/contact" element={<GetInTouchPage />} />
+            <Route path="/tos" element={<TermsOfUse/>} />
+            <Route path="/privacy" element={<PrivacyPolicy/>} />
           </Routes>
         </div>
 

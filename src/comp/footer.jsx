@@ -34,7 +34,8 @@ export function Footer() {
           <Link to="/about" className="text-sm hover:underline">About</Link>
           <Link to="/roadmap" className="text-sm hover:underline">Roadmap</Link>
           <Link to="/faq" className="text-sm hover:underline">FAQs</Link>
-          <Link to="/docs" className="text-sm hover:underline">Documentation</Link>
+          <Link to="/tos" className="text-sm hover:underline">Terms of Use</Link>
+          <Link to="/privacy" className="text-sm hover:underline">Privacy Policy</Link>
         </div>
 
         {/* Contact Info */}
