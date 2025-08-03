@@ -44,3 +44,65 @@ components.json
 
 # TypeScript build
 *.tsbuildinfo
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+db.sqlite3-journal
+
+# Environment
+.env
+.venv/
+venv/
+env/
+ENV/
+Pipfile.lock
+poetry.lock
+
+# Media and Static files
+/media/
+staticfiles/
+static/
+*.sass-cache/
+*.css.map
+*.js.map
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+*.swp
+*.swo
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+coverage.xml
+
+# Migrations (optional, but usually committed)
+# Uncomment if you don’t want to track migrations (not recommended for team projects)
+# **/migrations/
+
+# Node modules (if using npm/yarn for frontend in Django)
+node_modules/

@@ -9,13 +9,14 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+
+import { subscribeToNewsletter } from "@/lib/api/newsletter"
 
 const NewsletterSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
@@ -29,14 +30,16 @@ export function NewsletterSignup() {
     },
   })
 
-  const onSubmit = (values) => {
-    toast("Thanks for subscribing!", {
-      description: (
-        <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    })
+  const onSubmit = async (values) => {
+    try {
+      const res = await subscribeToNewsletter(values.email)
+      toast.success(res.message || "Thanks for subscribing!")
+      form.reset()
+    } catch (err) {
+      toast.error(
+        err?.email || err?.message || "Something went wrong. Try again later."
+      )
+    }
   }
 
   return (
