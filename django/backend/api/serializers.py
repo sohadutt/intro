@@ -31,9 +31,9 @@ class NewsletterSignupSerializer(serializers.ModelSerializer):
             created_at__gte=five_days_ago
         ).count()
 
-        if recent_2hr_signups >= 5:
+        if recent_2hr_signups >= 10:
             raise serializers.ValidationError("Too many signups from this IP in the last 2 hours.")
-        if recent_5d_signups >= 10:
+        if recent_5d_signups >= 20:
             raise serializers.ValidationError("Too many signups from this IP in the last 5 days.")
 
         subscriber = NewsletterSubscriber.objects.create(

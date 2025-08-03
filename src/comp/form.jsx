@@ -2,9 +2,8 @@
 
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
+import { date, z } from "zod"
 import { toast } from "sonner"
-
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -16,7 +15,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-import { subscribeToNewsletter } from "@/lib/api/newsletter"
+import { subscribeToNewsletter } from "../lib/newsletter"
 
 const NewsletterSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
@@ -73,7 +72,16 @@ export function NewsletterSignup() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              variant="outline"
+              onClick={() =>
+                toast("Thanks For Subscribing", {
+                  description: new Date().toLocaleString(),
+                })
+              }
+            >
               Sign Up
             </Button>
           </form>
