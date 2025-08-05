@@ -12,6 +12,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  Toast
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
@@ -77,9 +78,7 @@ export function NewsletterSignup() {
               className="w-full"
               variant="outline"
               onClick={() =>
-                toast("Thanks For Subscribing", {
-                  description: new Date().toLocaleString(),
-                })
+                <Toast/>
               }
             >
               Sign Up
