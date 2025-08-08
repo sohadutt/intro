@@ -1,57 +1,78 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { ReactLenis, useLenis } from "lenis/react";
+import logo from "@/assets/img/icon/logo_hires.webp"
+
 import { Nav } from "./comp/nav";
-import "./App.css";
-import { NewsletterSignup } from "./comp/form";
 import { Footer } from "./comp/footer";
-import { FeatureCarousel } from "./comp/content1";
-import { IntroSection } from "./comp/intro";
-import { RoadmapSection } from "./comp/roadmap";
+import { NewsletterSignup } from "./comp/form";
+import { Home } from "./comp/home";
 
 import AboutPage from "./pages/about";
 import FAQPage from "./pages/faqpage";
 import GetInTouchPage from "./pages/getintouchpage";
 import TermsOfUse from "./pages/termsofuse";
 import PrivacyPolicy from "./pages/privacyPolicy";
+import "./App.css";
+
+function ScrollToTopWithLenis() {
+  const location = useLocation();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+      lenis.resize();
+    }
+  }, [location.pathname, lenis]);
+
+  return null;
+}
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="main">
-        <div className="header">
-          <Link to="/" className="logo">
-            BoardBenchers
-          </Link>
-          <Nav />
-        </div>
+    <ReactLenis root>
+      <BrowserRouter>
+        <ScrollToTopWithLenis />
+        <div className="main">
+          {/* Header */}
+          <div className="header p-4 flex justify-between items-center border-b">
+            <Link to="/" className="logo flex items-center gap-2 text-xl font-bold text-primary">
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
+              Board&Benchers
+            </Link>
+            <Nav />
+          </div>
 
-        <div className="content">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <IntroSection />
-                  <FeatureCarousel />
-                  <RoadmapSection />
-                  <div className="form">
-                    <NewsletterSignup />
-                  </div>
-                </>
-              }
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/contact" element={<GetInTouchPage />} />
-            <Route path="/tos" element={<TermsOfUse/>} />
-            <Route path="/privacy" element={<PrivacyPolicy/>} />
-          </Routes>
-        </div>
+          {/* Page Content */}
+          <div className="content">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Home />
+                    <div className="form px-6 py-12">
+                      <NewsletterSignup />
+                    </div>
+                  </>
+                }
+              />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/contact" element={<GetInTouchPage />} />
+              <Route path="/tos" element={<TermsOfUse />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+            </Routes>
+          </div>
 
-        <div className="footer">
-          <Footer />
+          {/* Footer */}
+          <div className="footer border-t py-6">
+            <Footer />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ReactLenis>
   );
 }
 

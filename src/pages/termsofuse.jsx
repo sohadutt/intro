@@ -5,9 +5,9 @@ export default function TermsOfUse() {
         <div className="mx-auto max-w-4xl px-6 py-12">
             <div className="space-y-8">
                 {/* Header */}
-                <div className="text-center space-y-4">
+                <div className="space-y-4">
                     <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-balance">
-                        Board&Benchers Terms of Service
+                        Terms of Service
                     </h1>
                 </div>
 
