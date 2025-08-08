@@ -13,7 +13,7 @@ body {
   padding: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   #root {
     max-width: 100%;
   }

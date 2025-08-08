@@ -160,14 +160,14 @@ export function Nav() {
       {/* Mobile DropdownMenu */}
       <div className="flex md:hidden items-center justify-between p-2">
         {/* Logo or Brand */}
-        <Link to="/" className="text-lg font-bold mr-2">
-          Menu
+        <Link to="/" className="text-lg mr-1">
+          
         </Link>
 
         {/* Dropdown menu toggle button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="sm" aria-label="Toggle menu">
+            <Button variant="secondary" size="icon" aria-label="Toggle menu">
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
           </DropdownMenuTrigger>
